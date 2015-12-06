@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="../static/css/error.css" type="text/css">
+<div class="error_container">
+  <img class="error_block" src="../static/images/feather-2.png" alt=''>
+  <div class="error_block error_text" >
+
+{% block error_msg %}
+{% endblock %}
+
+    <h5>or</h5>
+    <a href="index"><h3 class="home_link highlight">Back to Homepage</h3></a>
+  </div>
+
+</div>
+{% endblock %}
