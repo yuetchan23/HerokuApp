@@ -7,3 +7,4 @@ class ContactForm(Form):
   subject = TextField("Subject")
   message = TextAreaField("Message")
   submit = SubmitField("Send")
+# Represents an <input type="submit">. This allows checking if a given submit button has been pressed.

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<!-- SEMANTIC!!PAGE WRAP -->
+ <div class="page-wrap">
+    	<!-- START PROJECT-SINGLE -->
+	    <div class="page">
+		      <div class="container">
+          <div class="row">
+
+							<div class="sixteen columns">
+											<!-- START TITLE -->
+								<div class="title">
+
+
+									<h3><span id="greeting"></span></h3>
+									<h1>Contact Yue</h1>
+
+													<div class="subtitle">
+															<p>I'd really love to <span class="highlight">hear from you</span>.<br/> Drop me an email and <span class="highlight">I'll get back</span> to you as soon as I can.</p>
+													</div><!-- END SUBTITLE -->
+												</div><!-- END TITLE -->
+
+							</div><!-- END SIXTEEN COLUMNS -->
+
+
+						<!-- START CONTACT BOX -->
+						 <div class="contact-box">
+							 <!-- START CONTACT FORM -->
+								<div id="contact-form">
+									 <form action="{{ url_for('contact') }}" method="post">
+
+                       <div id="contact-input">
+                         <!-- {{ form.name.label }} -->
+                         {{ form.name(placeholder='Name(required)') }}
+
+                         <!-- {{ form.email.label }} -->
+                         {{ form.email(placeholder='YourEmail@xxx.com(required)') }}
+
+                         <!-- {{ form.subject.label }} -->
+                         {{ form.subject(placeholder='Subject') }}
+
+                         <!-- <input type="text" name="contact[name]" id="name" placeholder="Name (required)" >
+												 <input type="text" name="contact[email]" id="email" placeholder="Email (required)">
+												 <input type="text" name="contact[subject]" id="subject" placeholder="Subject" > -->
+											 </div>
+
+											 <div id="contact-textarea">
+                         <!-- {{ form.message.label }} -->
+                         {{ form.message(placeholder='Write down your words to Yue') }}
+												 <!-- <textarea name="contact[message]" id="message" cols="39" rows="4" placeholder="Your Message"></textarea> -->
+											 </div>
+
+											 <div id="contact-submit">
+                         {{ form.submit(class_="button") }}
+                            <!-- flask attribute class has to be class_='', because class is a keyword for flask specifically -->
+                         {{ message }}
+
+                         <!-- <div>
+													 <input onclick = "check();" name="submit" type="submit" id="submit" tabindex="5" value="Post Comment" class="comment-submit small button">
+												 </div> -->
+
+											 </div>
+
+										 </form>
+								<div class="clear"></div>
+								 </div>
+									<div class="result"></div>
+					 <!-- END CONTACT FORM -->
+					 </div>
+
+
+				 </div><!-- END ROW -->
+			 </div><!-- END CONTAINER -->
+		 </div><!-- END PAGE-->
+		</div><!-- END SEMANTIC PAGE-WRAP -->
+
+		<script type="text/javascript">
+
+			   function check(){
+					 if($(document.getElementById("name")).val().length == 0){
+							 alert('Please fill out your name');
+						 }
+					 else if($(document.getElementById("email")).val().length == 0){
+					 		 alert('Please fill out your email');
+					   }
+					else alert('submit successuly!')
+
+				 };
+
+
+				 window.onload = function () {
+					 timegreeting();
+				 }
+
+				 function timegreeting() {
+					 	var now = new Date();
+						var greet;
+
+						/* If before 11:00 */
+		    	if (now.getHours() < 11) {
+		        greet = "Morning! Relax and have a cup of coffee.";
+					}
+
+					/* If 11:00 - 17:00 */
+		    	else if (now.getHours() < 17) {
+		        greet = "Take a snap in the afternoon helps!";
+		  		}
+					/* If after 17:00 */
+		    	else { greet = "Enjoy the nice evening!";
+				  }
+
+		    document.getElementById("greeting").innerHTML = greet;
+				// alert(greet);
+				}
+			</script>
+
+  	{% endblock %}
