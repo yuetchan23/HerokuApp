@@ -56,7 +56,7 @@ def contact():
       """
     mail.send(msg_1)
 
-    return render_template('contact.html', name='contact', form=form, message="Thank you for sumitting your information")
+    return render_template('contact.html', name='contact', form=form, message="Thank you for sumitting your email")
 
 
   elif request.method == 'GET':
